@@ -1,0 +1,214 @@
+
+===========================================================================================
+***************************** ///  Lists [ ]  ///  ****************************************
+===========================================================================================
+---------------------------------------------------
+
+Create List:
+
+seq = [1, 2, 3, 4, 5]
+seq = ["A", "B", "C", "D", "E"]
+seq = [1, "A", 1.2]
+
+input() - read elements at runtime
+append() - insert element into the list - syntax (list_name.append(element))
+           ex:
+               seq = [] -> empty list
+               for i in range(5):
+                       ele = input()
+                       seq.append(ele)
+
+seq = []
+for i in range(5):
+    ele = int(input("Enter a number:"))
+    seq.append(ele)
+    print(seq)
+
+split() - seq = input().split()
+------------------------------------------
+
+Operations:
+ 
+seq = [10, 20, 30, 40, 50]
+
+Access - index start from 0 to n-1 , seq[index]
+update - add(append) - add element at the end of the list - seq.append(element) 
+         reassign - change value in the list - seq[index(0/1/2....)] = [15/25/35...]
+         delete - delete a particular element - del seq[index]
+
+----------------------
+Slicing
+
+seq[1] = 20 (positive index - right to left)
+seq[-1] = 50 (negative index - left to right)
+seq[1:3] = [20,30] (index 1 to 2)
+seq[:4] = [10,20,30,40] (index 0 to 3)
+seq[2:] = [30,40,50] (index 2 to end)
+seq[::] = [10,20,30,40,50] (index 0 to 4)
+-----------------------
+
+concatenation - addition of two lists 
+
+a = [1,2,3]
+b = [4,5,6]
+c = a + b => [1,2,3,4,5,6]
+
+----------------------
+
+repetition - can perform only with one list and with one integer value, cannot perform one list with another list.
+
+a = [1,2,3]
+b = a*2 => [1,2,1,2]
+
+----------------------
+a = [1,2,3]
+
+len(a) = 3
+max(a) = 3
+min(a) = 1
+
+---------------------------
+string to list - 
+
+>>>a = input()
+hello Welcome
+>>>print(a)
+hello Welcome
+>>>a = input().split()
+hello Welcome
+>>>print(a)
+['hello', 'Welcome']
+>>>print(a[0])
+hello
+----------------------------
+
+List - built-in functions
+
+a = [1,2,3,4,5]
+b = [1,2,3,1,4,1,5]
+
+1. returns some value but doesn't change the list 
+
+count(value) - list_name.count(value) 
+               a.count(4) -> 1 # no.of occurances of 4
+               b.count(1) -> 3
+
+index(value) - list_name.index(value)
+               a.index(4) -> 3 # return the index of value which appears first in the list
+               b.index(1) -> 0
+
+index(value, start) - list_name.index(value, start)
+                      a.index(4,1) -> 3 # specify the index value have to consider
+                      b.index(1,2) -> 3
+                      b.index(1,4) -> 5
+
+2. Doesn't return any value but changes the list
+
+append(value) - a.append(6) - [1,2,3,4,5,6] - add only one element
+extend(list) - a.extend([7,8,9]) - [1,2,3,4,5,6,7,8,9] - add multiple elements
+insert(index,value) - a.insert(0,10) - [10,1,2,3,4,5,6,7,8,9] - add at specific index
+remove(value) - a.remove(10) - [1,2,3,4,5,6,7,8,9] - removes first occurance of the given value from the list
+                b.remove(1) - [2,3,1,4,1,5]
+
+reverse() - a.reverse() - [5,4,3,2,1] - no value return but list is changed, no arguments required
+sort() - b.sort() - [1,1,1,2,3,4,5]
+pop() - a.pop() - [1,2,3,4]
+
+----------------------------------------------------
+
+List Comprehension - creates a subsequence of elements that satisfy the conditions
+
+s = [1,4,9,16,25]
+
+list = [expression for variable in sequence]
+
+s = [i**2 for i in range(1,6)] -> s = [1,4,9,16,25]
+---------------------
+
+looping in lists: 
+
+for i in range(n): ( use sequene of elements - range(list/tuple/dictionary))
+	print(i)
+
+list = [1,3,5,7,9]
+
+for i in list:
+	print (i) - 1, 3, 5, 7, 9 - i is an element in the list and returns values in sequence.
+
+list1 = [1,3,5,7]
+list2 = [2,4,6,8]
+
+pair = [(x,y) for x in list1 for y in list2 if x!=y] - [(1,2), (3,4), (5,6), (7,8)]
+
+-----------------------
+
+example:
+
+list = ["Zero", "One", Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+n= int(input("Enter a name:"))
+print(list[n])
+
+-------------------------------
+=========================================
+A=(1,2,3) 
+B=(4,5,6) 
+C=[A]+[B] 
+print(C) 
+C=list(A)+list(B) 
+print(C) 
+The output of above code is:
+
+[(1, 2, 3), (4, 5, 6)] 
+[1, 2, 3, 4, 5, 6] 
+
+ “[]” does not try to convert tuple into a list. It just returns the location of tuple i.e. 
+it will not store the element of tuple in C variable but the memory location of tuple. As a result you will get list of tuples.
+
+On the other list() is a method that try to convert the the iterable object into list of elements. 
+As a result you will get you get elements in “C” instead of locations of tuples.
+
+=================================================================================
+
+=================================================================================
+import numpy as np 
+import pandas as pd
+### create a list from ###
+
+# a string
+a= list('Amanda')
+# ['A', 'm', 'a', 'n', 'd', 'a']
+print(a,'\n')
+
+# a tuple
+b = list(('Madrid', 'Valencia', 'Munich'))
+# ['Madrid', 'Valencia', 'Munich']
+print(b,'\n')
+
+# a dictionary 
+c= list({'hydrogen': 1, 'helium': 2, 'carbon': 6, 'oxygen': 8})
+# ['hydrogen', 'helium', 'carbon', 'oxygen']
+print(c,'\n')
+
+# a set
+d = list({'Madrid', 'Valencia', 'Munich'})
+# ['Munich', 'Madrid', 'Valencia']
+print(d,'\n')
+
+# a range object
+e = list(range(15))
+# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+print(e,'\n')
+
+# a numpy array
+f = list(np.array([1, 2, 3]))
+# [1, 2, 3]
+print(f,'\n')
+
+# a pandas series
+g = list(pd.Series(['a', 'b', 'c']))
+# ['a', 'b', 'c']
+print(g)
+
+================================================================================
+*********************************************************************************
+=================================================================================
